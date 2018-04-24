@@ -1,5 +1,5 @@
 export class Lancamento {
     nomeProduto: string;
-    nomeAnunciando: string;
+    nomeComprador: string;
     valor: number;
 }

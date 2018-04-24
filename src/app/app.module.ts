@@ -9,6 +9,7 @@ import { ProdutoService } from './services/produto.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LeilaoComponent } from './leilao/leilao.component';
 import { LeiloesComponent } from './leiloes/leiloes.component';
+import { LancamentoService } from './services/lancamento.service';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { LeiloesComponent } from './leiloes/leiloes.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ProdutoService],
+  providers: [ProdutoService, LancamentoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -18,6 +18,15 @@ export class LancarProdutoComponent implements OnInit {
 
   iniciarLeilao(){
     console.log(this.produto);
-    this.produtoService.cadastrarProduto(this.produto);
+    this.produtoService.cadastrarProduto(this.produto).subscribe(
+      response => {
+        console.log(response)
+        alert("Leilão iniciado");
+      },
+      error => {
+        console.log(error)
+        alert("Erro no cadastro");
+      });
+;
   }
 }

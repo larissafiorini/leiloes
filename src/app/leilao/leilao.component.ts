@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Produto } from '../entities/Produto';
+import { Produto } from '../entities/produto';
 import { Lancamento } from '../entities/lancamento';
 import { LancamentoService } from '../services/lancamento.service';
 
@@ -20,11 +20,21 @@ export class LeilaoComponent implements OnInit {
   ngOnInit() {
     this.lancamentoService.buscarLancamentos().subscribe(
       response => {
-        this.lancamentos = response['Lancamentos'];
+        this.lancamentos = response;
         console.log (this.lancamentos);
       }
     )
-    this.lancamento.nomeProduto = this.produto.nome;
+    this.lancamento.nomeProduto = this.produto.produto;
   }
 
+  fazerLancamento(){
+    this.lancamentoService.cadastrarLancamento(this.lancamento).subscribe(
+      response => {
+        alert("Lancamento efetuado com sucesso!");
+      },
+      error => {
+        alert("Erro");
+      }
+    )
+  }
 }

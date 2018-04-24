@@ -1,5 +1,5 @@
 export class Produto {
     anunciante: string;
-    nome: string;
+    produto: string;
     valorInicial: number;
 }

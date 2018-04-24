@@ -8,11 +8,11 @@ export class LancamentoService {
 
   constructor(private http: HttpClient) { }
 
-  cadastrarLancamento(lancamento: Lancamento){
-    this.http.post<Lancamento>('url', lancamento);
+  cadastrarLancamento(lancamento: Lancamento): Observable<Lancamento>{
+    return this.http.post<Lancamento>('http://localhost:3000/addLance', lancamento);
   }
 
   buscarLancamentos(): Observable<Lancamento[]>{
-    return this.http.get<Lancamento[]>('url');
+    return this.http.get<Lancamento[]>('http://localhost:3000/listLances');
   }
 }

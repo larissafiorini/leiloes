@@ -8,12 +8,12 @@ export class ProdutoService {
 
   constructor(private http: HttpClient) { }
 
-  cadastrarProduto(produto: Produto){
-    this.http.post<Produto>('url', produto);
+  cadastrarProduto(produto: Produto): Observable<Produto>{
+    return this.http.post<Produto>('http://localhost:3000/addProduto', produto);
   }
 
   buscarProdutos(): Observable<Produto[]>{
-    return this.http.get<Produto[]>('url');
+    return this.http.get<Produto[]>('http://localhost:3000/listProdutos');
   }
 
 }
