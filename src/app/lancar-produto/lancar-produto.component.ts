@@ -16,7 +16,7 @@ export class LancarProdutoComponent implements OnInit {
   ngOnInit() {
   }
 
-  iniciarLeilao(){
+  iniciarLeilao() {
     console.log(this.produto);
     this.produtoService.cadastrarProduto(this.produto).subscribe(
       response => {

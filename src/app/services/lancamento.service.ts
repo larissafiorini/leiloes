@@ -15,4 +15,8 @@ export class LancamentoService {
   buscarLancamentos(): Observable<Lancamento[]>{
     return this.http.get<Lancamento[]>('http://localhost:3000/listLances');
   }
+
+  ultimoLancamento(): Observable<Lancamento> {
+    return this.http.get<Lancamento>('http://localhost:3000/ultimoLance');
+  }
 }
