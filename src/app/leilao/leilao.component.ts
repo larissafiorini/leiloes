@@ -34,9 +34,9 @@ export class LeilaoComponent implements OnInit {
       }
     )
     this.lancamento.nomeProduto = this.produto.produto;
-    let interval = setInterval(() => {
-      this.realTime();
-    }, 1000);
+    // let interval = setInterval(() => {
+    //   this.realTime();
+    // }, 1000);
   }
 
   fazerLancamento(){
@@ -50,26 +50,26 @@ export class LeilaoComponent implements OnInit {
     )
   }
 
-  realTime() {
-      console.log("entrou");
-      // setTimeout(function () {}, 1000);
-        this.lancamentoService.ultimoLancamento().subscribe(
-          response => {
-            debugger;
-              if(!this.ultimoLancamento
-              || response['lance'].valor !== this.ultimoLancamento.valor
-              || response['lance'].nomeProduto !== this.ultimoLancamento.nomeProduto
-              || response['lance'].nomeComprador !== this.ultimoLancamento.nomeComprador) {
-                console.log(response);
-                alert("Comprador " + response['lance'].nomeComprador + " fez lançamento de R$ " + response['lance'].valor + " para o produto " + response['lance'].nomeProduto);
-                this.ultimoLancamento = response['lance'];
-                console.log(this.ultimoLancamento)
-              }
-          },
-          error => {
-            console.log("ainda não emitido")
-          }
-        );
-    // }, 5000);
-  }
+  // realTime() {
+  //     console.log("entrou");
+  //     // setTimeout(function () {}, 1000);
+  //       this.lancamentoService.ultimoLancamento().subscribe(
+  //         response => {
+  //           debugger;
+  //             if(!this.ultimoLancamento
+  //             || response['lance'].valor !== this.ultimoLancamento.valor
+  //             || response['lance'].nomeProduto !== this.ultimoLancamento.nomeProduto
+  //             || response['lance'].nomeComprador !== this.ultimoLancamento.nomeComprador) {
+  //               console.log(response);
+  //               alert("Comprador " + response['lance'].nomeComprador + " fez lançamento de R$ " + response['lance'].valor + " para o produto " + response['lance'].nomeProduto);
+  //               this.ultimoLancamento = response['lance'];
+  //               console.log(this.ultimoLancamento)
+  //             }
+  //         },
+  //         error => {
+  //           console.log("ainda não emitido")
+  //         }
+  //       );
+  //   // }, 5000);
+  // }
 }
